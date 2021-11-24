@@ -14,6 +14,8 @@ This is a more detailed description:
    - First, instead of `s_i` be just chunks of S, we set `s_i` to be the result of a vector-matrix multiplication over GF(2) `s_i := S*[M]`. Here `[M]` is a public matrix constructed from the message being signed `m`, with dimensions chosen so that `s_i` is only a few bits long. To reconstruct S from `s_i`, the backdoor designer just solves a linear system of equations over GF(2). The advantage here is that this method is resistant to loss of some `s_i`, and the order in which `s_i` are recovered does not matter. Also, the backdoor designer gets immediate feedback on how many bits are still to be guessed from S!
    - Second, instead of repeating `b` over and over for different signatures, we use a per-message secret `b_i := h(b, m)` where `h` is a hash function and `m` is the message being signed. The backdoor designer can still reconstruct `b_i` and use this to loop over possible values for `s_i`.
 
+Some concrete figures: the code right can be used to leak a ~256-bit secret S in about 12 signatures by leaking 20 bits per signature. Recovering each `s_i` takes about 18 seconds in the dumbest implementation ever on a standard laptop.
+
 ## TODO
 
 - [ ] Implementation of the nonce generation in a real language
