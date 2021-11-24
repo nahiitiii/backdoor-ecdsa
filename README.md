@@ -19,4 +19,6 @@ Some concrete figures: the code right can be used to leak a ~256-bit secret S in
 ## TODO
 
 - [ ] Implementation of the nonce generation in a real language
+- [ ] Better efficiency: leak more bits per signature.
+- [ ] Leak a public-key encrypted secret, so that if `b` is eventually revealed, S can't be recovered from signatures. Here we'd need a public-key scheme with very compact ciphertext -- can we do better than ECIES?
 - [ ] Good cover story. This is a fun exercise in creative writing, and there are good examples to learn from 😉
